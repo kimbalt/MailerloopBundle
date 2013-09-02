@@ -11,25 +11,6 @@
             "email": "vaidas@notrix.lt"
         }
     ],
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "mailerlite/mailerloop",
-                "version": "dev-master",
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/mailerlite/mailerloop.git",
-                    "reference": "master"
-                },
-                "autoload": {
-                    "classmap": [
-                        "PHP/"
-                    ]
-                }
-            }
-        }
-    ],
     "require": {
         "php": ">=5.3.2",
         "mailerlite/mailerloop": "dev-master",
