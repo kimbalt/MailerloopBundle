@@ -17,11 +17,11 @@ in config.yml
 Usage
 -----
 
-$message = MailerloopMessage::newInstance()
-    ->setSubject('Useful to mark message in code (will not be sent)')
-    ->setTo('recipient1@example.com', 'Recipient Name')
-    ->addTo('recipient2@example.com')
-    ->setTemplateId(00000);
-
-$this->get('mailer')->send($message);
+    $message = MailerloopMessage::newInstance()
+        ->setSubject('Useful to mark message in code (will not be sent)')
+        ->setTo('recipient1@example.com', 'Recipient Name')
+        ->addTo('recipient2@example.com')
+        ->setTemplateId(00000);
+    
+    $this->get('mailer')->send($message);
 
