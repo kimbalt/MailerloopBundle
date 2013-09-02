@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="notrix_mailerloop.api_key"></parameter>
+        <parameter key="notrix_mailerloop.api.class">MailerLoop</parameter>
+        <parameter key="notrix_mailerloop.eventdispatcher.class">Swift_Events_SimpleEventDispatcher</parameter>
+        <parameter key="notrix_mailerloop.mailerloop_transport.class">Notrix\MailerloopBundle\Transport\MailerloopTransport</parameter>
+    </parameters>
+
+    <services>
+        <service id="notrix_mailerloop.api" class="%notrix_mailerloop.api.class%">
+            <argument>%notrix_mailerloop.api_key%</argument>
+        </service>
+
+        <service id="notrix_mailerloop.eventdispatcher"
+                 class="%notrix_mailerloop.eventdispatcher.class%"
+                 parent="swiftmailer.transport.eventdispatcher.abstract" />
+
+        <service id="swiftmailer.mailer.transport.mailerloop"
+                 class="%notrix_mailerloop.mailerloop_transport.class%">
+            <tag name="monolog.logger" channel="notrix_mailerloop.transport" />
+            <argument type="service" id="notrix_mailerloop.eventdispatcher" />
+            <argument type="service" id="notrix_mailerloop.api" />
+            <argument type="service" id="logger" />
+        </service>
+    </services>
+</container>

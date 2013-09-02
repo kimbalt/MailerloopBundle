@@ -1,0 +1,45 @@
+{
+    "type": "symfony-bundle",
+    "name": "notrix/mailerloop-bundle",
+    "description": "Symfony2 bundle to implement mailerloop.com service as SwiftMailer transport",
+    "keywords": ["symfony", "mailerloop", "swift", "email"],
+    "homepage": "https://github.com/notrix/MailerloopBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vaidas Lažauskas",
+            "email": "vaidas@notrix.lt"
+        }
+    ],
+    "minimum-stability": "stable",
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "mailerlite/mailerloop",
+                "version": "dev-master",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/mailerlite/mailerloop.git",
+                    "reference": "master"
+                },
+                "autoload": {
+                    "classmap": [
+                        "PHP/"
+                    ]
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "mailerlite/mailerloop": "dev-master",
+        "swiftmailer/swiftmailer": ">=4.2.0,<5.1-dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "Notrix\\MailerloopBundle": ""
+        }
+    },
+    "target-dir": "Notrix/MailerloopBundle"
+}
