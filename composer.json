@@ -11,7 +11,6 @@
             "email": "vaidas@notrix.lt"
         }
     ],
-    "minimum-stability": "stable",
     "repositories": [
         {
             "type": "package",
