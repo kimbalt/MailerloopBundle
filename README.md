@@ -6,6 +6,23 @@ Symfony2 bundle to implement mailerloop.com service as SwiftMailer transport
 Configuration
 -------------
 
+in composer.json
+
+    "require": {
+        ...,
+        "notrix/mailerloop-bundle": "dev-master"
+    },
+
+in AppKernel.php
+
+    public function registerBundles()
+    {
+        $bundles = array(
+            ...,
+            new Notrix\MailerloopBundle\NotrixMailerloopBundle(),
+        );
+    }
+
 in config.yml
 
     swiftmailer:
@@ -16,6 +33,8 @@ in config.yml
 
 Usage
 -----
+
+    use Notrix\MailerloopBundle\Message\MailerloopMessage;
 
     $message = MailerloopMessage::newInstance()
         ->setSubject('Useful to mark message in code (will not be sent)')
