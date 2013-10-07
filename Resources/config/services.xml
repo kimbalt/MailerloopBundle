@@ -9,6 +9,8 @@
         <parameter key="notrix_mailerloop.api.class">MailerLoop</parameter>
         <parameter key="notrix_mailerloop.eventdispatcher.class">Swift_Events_SimpleEventDispatcher</parameter>
         <parameter key="notrix_mailerloop.mailerloop_transport.class">Notrix\MailerloopBundle\Transport\MailerloopTransport</parameter>
+        <parameter key="notrix_mailerloop.email_router.class">Notrix\MailerloopBundle\Service\EmailRouter</parameter>
+        <parameter key="notrix_mailerloop.email_router.map" type="collection" />
     </parameters>
 
     <services>
@@ -26,6 +28,10 @@
             <argument type="service" id="notrix_mailerloop.eventdispatcher" />
             <argument type="service" id="notrix_mailerloop.api" />
             <argument type="service" id="logger" />
+        </service>
+
+        <service id="notrix_mailerloop.email_router" class="%notrix_mailerloop.email_router.class%">
+            <argument>%notrix_mailerloop.email_router.map%</argument>
         </service>
     </services>
 </container>
