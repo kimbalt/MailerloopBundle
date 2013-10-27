@@ -185,7 +185,7 @@ abstract class AbstractMailerloopMessage extends \Swift_Mime_SimpleMimeEntity
      */
     public function setFrom($addresses, $name = null)
     {
-        if (!is_array($addresses) && isset($name)) {
+        if (!is_array($addresses)) {
             $addresses = array($addresses => $name);
         }
         $this->from = $addresses;
@@ -225,7 +225,7 @@ abstract class AbstractMailerloopMessage extends \Swift_Mime_SimpleMimeEntity
      */
     public function setReplyTo($addresses, $name = null)
     {
-        if (!is_array($addresses) && isset($name)) {
+        if (!is_array($addresses)) {
             $addresses = array($addresses => $name);
         }
         $this->replyTo = $addresses;
@@ -263,7 +263,7 @@ abstract class AbstractMailerloopMessage extends \Swift_Mime_SimpleMimeEntity
      */
     public function setTo($addresses, $name = null)
     {
-        if (!is_array($addresses) && isset($name)) {
+        if (!is_array($addresses)) {
             $addresses = array(array($addresses => $name));
         }
         $this->to = $addresses;
@@ -313,7 +313,7 @@ abstract class AbstractMailerloopMessage extends \Swift_Mime_SimpleMimeEntity
      */
     public function setCc($addresses, $name = null)
     {
-        if (!is_array($addresses) && isset($name)) {
+        if (!is_array($addresses)) {
             $addresses = array(array($addresses => $name));
         }
         $this->cc = $addresses;
@@ -352,7 +352,7 @@ abstract class AbstractMailerloopMessage extends \Swift_Mime_SimpleMimeEntity
      */
     public function setBcc($addresses, $name = null)
     {
-        if (!is_array($addresses) && isset($name)) {
+        if (!is_array($addresses)) {
             $addresses = array(array($addresses => $name));
         }
         $this->bcc = $addresses;
