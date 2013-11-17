@@ -169,7 +169,9 @@ class MailerloopTransport implements \Swift_Transport
             }
         }
 
-        $message->setId($result['id']);
+        if(isset($result['id'])) {
+            $message->setId($result['id']);
+        }
         return count($to) + count($cc) + count($bcc);
     }
 

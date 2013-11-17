@@ -1,18 +1,19 @@
 {
     "type": "symfony-bundle",
-    "name": "notrix/mailerloop-bundle",
+    "name": "kareiva/mailerloop-bundle",
     "description": "Symfony2 bundle to implement mailerloop.com service as SwiftMailer transport",
     "keywords": ["symfony", "mailerloop", "swift", "email"],
-    "homepage": "https://github.com/notrix/MailerloopBundle",
+    "homepage": "https://github.com/kareiva/MailerloopBundle",
     "license": "MIT",
     "authors": [
         {
-            "name": "Vaidas Lažauskas",
-            "email": "vaidas@notrix.lt"
+            "name": "pinfishing.com team",
+            "email": "info@pinfishing.com"
         }
     ],
     "require": {
         "php": ">=5.3.2",
+        "psr/log":"dev-master",
         "mailerlite/mailerloop": "dev-master",
         "swiftmailer/swiftmailer": ">=4.2.0,<5.1-dev"
     },
