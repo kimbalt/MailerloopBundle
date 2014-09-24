@@ -1,9 +1,9 @@
 {
     "type": "symfony-bundle",
-    "name": "kareiva/mailerloop-bundle",
+    "name": "kimbalt/mailerloop-bundle",
     "description": "Symfony2 bundle to implement mailerloop.com service as SwiftMailer transport",
     "keywords": ["symfony", "mailerloop", "swift", "email"],
-    "homepage": "https://github.com/kareiva/MailerloopBundle",
+    "homepage": "https://github.com/kimbalt/MailerloopBundle",
     "license": "MIT",
     "authors": [
         {
