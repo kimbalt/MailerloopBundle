@@ -93,6 +93,8 @@ class MailerloopTransport implements \Swift_Transport
             throw new MailerloopServiceException('Email messages through MailerLoop must extend MailerloopMessage');
         }
 
+        $this->mailerApi->clearRecipients();
+
         $failedRecipients = (array) $failedRecipients;
 
         if ($event = $this->eventDispatcher->createSendEvent($this, $message)) {
