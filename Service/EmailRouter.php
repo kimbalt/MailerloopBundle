@@ -73,4 +73,30 @@ class EmailRouter
             return $templates[rand(0, count($templates)-1)];
         }
     }
+
+    /**
+     * @param $slug
+     * @param $template
+     * @param null $locale
+     * @return bool
+     * @throws \Notrix\MailerloopBundle\Exception\MailerloopRouterException
+     */
+    public function hasTemplate($slug, $template, $locale = null)
+    {
+        if (!isset($this->emailMap[$slug])) {
+            throw new MailerloopRouterException(sprintf('Template for slug "%s" is not configured', $slug));
+        }
+        if (is_array($this->emailMap[$slug])) {
+            if (!isset($this->emailMap[$slug][$locale])) {
+                throw new MailerloopRouterException(
+                    sprintf('Template for slug "%s" and locale "%s" is not configured', $slug, $locale)
+                );
+            }
+            $templates = explode(';', $this->emailMap[$slug][$locale]);
+            return in_array($template, $templates);
+        } else {
+            $templates = explode(';', $this->emailMap[$slug]);
+            return in_array($template, $templates);
+        }
+    }
 }
