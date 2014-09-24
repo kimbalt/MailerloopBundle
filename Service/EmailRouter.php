@@ -66,9 +66,11 @@ class EmailRouter
                     sprintf('Template for slug "%s" and locale "%s" is not configured', $slug, $locale)
                 );
             }
-            return $this->emailMap[$slug][$locale];
+            $templates = explode(';', $this->emailMap[$slug][$locale]);
+            return $templates[rand(0, count($templates)-1)];
         } else {
-            return $this->emailMap[$slug];
+            $templates = explode(';', $this->emailMap[$slug]);
+            return $templates[rand(0, count($templates)-1)];
         }
     }
 }
