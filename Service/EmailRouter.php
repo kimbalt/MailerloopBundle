@@ -46,16 +46,23 @@ class EmailRouter
     }
 
     /**
-     * Gets email template id by configured slug
-     *
-     * @param string $slug
-     * @param string $locale
-     *
-     * @return int
-     *
-     * @throws \Notrix\MailerloopBundle\Exception\MailerloopRouterException
+     * @param $slug
+     * @param null $locale
+     * @return mixed
      */
     public function getTemplate($slug, $locale = null)
+    {
+        $templates = $this->getTemplates($slug, $locale);
+        return $templates[rand(0, count($templates)-1)];
+    }
+
+    /**
+     * @param $slug
+     * @param null $locale
+     * @return array
+     * @throws \Notrix\MailerloopBundle\Exception\MailerloopRouterException
+     */
+    public function getTemplates($slug, $locale = null)
     {
         if (!isset($this->emailMap[$slug])) {
             throw new MailerloopRouterException(sprintf('Template for slug "%s" is not configured', $slug));
@@ -67,10 +74,10 @@ class EmailRouter
                 );
             }
             $templates = explode(';', $this->emailMap[$slug][$locale]);
-            return $templates[rand(0, count($templates)-1)];
+            return $templates;
         } else {
             $templates = explode(';', $this->emailMap[$slug]);
-            return $templates[rand(0, count($templates)-1)];
+            return $templates;
         }
     }
 
